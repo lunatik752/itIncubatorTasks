@@ -1,0 +1,11 @@
+.characterListWrapper {
+    width: 500px;
+    border: black 2px solid;
+    background: linear-gradient(-45deg, #FEE864, #F5965E);
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
