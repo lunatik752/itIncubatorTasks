@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Components/Header/Header';
 import MessageCloud from "./Components/MessageCloud/MessageCloud";
 import CharacterList from "./Components/CharacterList/CharacterList";
+import HelloCounter from "./Components/HelloCounter/HelloCounter";
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
             <Header/>
             <MessageCloud/>
             <CharacterList/>
+            <HelloCounter/>
         </div>
     );
 }

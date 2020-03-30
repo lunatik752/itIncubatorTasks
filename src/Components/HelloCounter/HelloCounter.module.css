@@ -1,0 +1,31 @@
+.helloCounterWrapper {
+    width: 500px;
+    border: black 2px solid;
+    background: linear-gradient(-45deg, #FEE864, #F5965E);
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.counter {
+    font-size: 30px;
+    margin: 10px;
+}
+
+.nameInput {
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.button {
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer
+
+}

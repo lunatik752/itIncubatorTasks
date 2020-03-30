@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <div className={style.header}>
             <h1>
-                Белый Максим
+                Максим Белый
             </h1>
         </div>
     )
