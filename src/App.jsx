@@ -6,6 +6,7 @@ import CharacterList from "./Components/CharacterList/CharacterList";
 import HelloCounter from "./Components/HelloCounter/HelloCounter";
 
 
+
 function App() {
     return (
         <div className='App-wrapper'>
