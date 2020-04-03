@@ -1,0 +1,12 @@
+.characterItem {
+    width: 250px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+
+}
