@@ -16,7 +16,6 @@ class HelloCounter extends React.Component {
 
 
     addName = () => {
-        debugger
         let newCounterValue = this.state.counterValue + 1;
         let newNameListItem = {
             name: this.newName.current.value,
