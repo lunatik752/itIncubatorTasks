@@ -1,19 +1,18 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Header/Header';
-import MessageCloud from "./Components/MessageCloud/MessageCloud";
-import CharacterList from "./Components/CharacterList/CharacterList";
-import HelloCounter from "./Components/HelloCounter/HelloCounter";
+import Navbar from "./Components/Navbar/Navbar";
+import Monday from "./Components/Monday/Monday";
+import Tuesday from "./Components/Tuesday/Tuesday";
+import {Route} from "react-router-dom";
 
 
 
 function App() {
     return (
         <div className='App-wrapper'>
-            <Header/>
-            <MessageCloud/>
-            <CharacterList/>
-            <HelloCounter/>
+            <Navbar/>
+            <Route path='/monday'  render={() => <Monday/>}/>
+            <Route path='/tuesday'  render={() => <Tuesday/>}/>
         </div>
     );
 }

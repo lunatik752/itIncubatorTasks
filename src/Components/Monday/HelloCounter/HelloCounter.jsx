@@ -29,7 +29,6 @@ class HelloCounter extends React.Component {
         let newText = this.state.inputText;
         if (newText === '') {
             this.setState({error: true});
-            alert('Введите новое имя!!!')
         } else {
             let newNameListItem = {
                 name: newText,
