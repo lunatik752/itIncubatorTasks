@@ -11,11 +11,13 @@ class HelloCounter extends React.Component {
         namesList: [],
         counterValue: 0,
         inputText: '',
+        error: false,
         placeholderValue: 'Введите имя'  //Текст заполнитель в инпуте
     };
 
     changeInputText = (newText) => {
         this.setState({
+                error: false,
                 inputText: newText
             }
         )
@@ -25,20 +27,23 @@ class HelloCounter extends React.Component {
     addName = () => {
         let newCounterValue = this.state.counterValue + 1;
         let newText = this.state.inputText;
-        let newNameListItem = {
-            name: newText,
-            id: this.state.counterValue + 1
-        };
-        alert('Привет ' + newText + '!!!');
-        this.setState({inputText: ''});
-
-        let newNamesList = [...this.state.namesList, newNameListItem];
-        this.setState({
-            namesList: newNamesList,
-            counterValue: newCounterValue
-        });
+        if (newText === '') {
+            this.setState({error: true});
+            alert('Введите новое имя!!!')
+        } else {
+            let newNameListItem = {
+                name: newText,
+                id: this.state.counterValue + 1
+            };
+            alert('Привет ' + newText + '!!!');
+            this.setState({inputText: ''});
+            let newNamesList = [...this.state.namesList, newNameListItem];
+            this.setState({
+                namesList: newNamesList,
+                counterValue: newCounterValue
+            });
+        }
     };
-
 
 
     render = () => {

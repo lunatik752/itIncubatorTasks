@@ -16,7 +16,7 @@ const Input = (props) => {
 
     return (
         <div>
-            <input className={style.nameInput}
+            <input className={props.state.error ? style.error  : style.nameInput}
                    type="text"
                    placeholder={props.state.placeholderValue}
                    onChange={onInputChange}
