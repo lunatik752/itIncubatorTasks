@@ -2,7 +2,7 @@ import React from 'react';
 import style from './HelloCounter.module.css';
 import NamesList from "./NamesList/NamesList";
 import Counter from "./Counter/Counter";
-import NameInput from "./NameInput/NameInput";
+import Input from "./Input/Input";
 import Button from "./Button/Button";
 
 class HelloCounter extends React.Component {
@@ -10,25 +10,33 @@ class HelloCounter extends React.Component {
     state = {
         namesList: [],
         counterValue: 0,
+        inputText: '',
+        placeholderValue: 'Введите имя'  //Текст заполнитель в инпуте
     };
 
-    newName = React.createRef();
+    changeInputText = (newText) => {
+        this.setState({
+                inputText: newText
+            }
+        )
+    };
 
 
     addName = () => {
         let newCounterValue = this.state.counterValue + 1;
+        let newText = this.state.inputText;
         let newNameListItem = {
-            name: this.newName.current.value,
+            name: newText,
             id: this.state.counterValue + 1
         };
-        alert('Привет ' + this.newName.current.value + '!!!');
-        this.newName.current.value = '';
+        alert('Привет ' + newText + '!!!');
+        this.setState({inputText: ''});
 
         let newNamesList = [...this.state.namesList, newNameListItem];
         this.setState({
             namesList: newNamesList,
             counterValue: newCounterValue
-        })
+        });
     };
 
 
@@ -37,8 +45,8 @@ class HelloCounter extends React.Component {
         return (
             <div className={style.helloCounterWrapper}>
                 <Counter counterValue={this.state.counterValue}/>
-                <NameInput newName={this.newName} />
-                <Button addName={this.addName} nameButton={'Добавить имя в список'}/>
+                <Input onKeyPress={this.addName} state={this.state} changeInputText={this.changeInputText}/>
+                <Button onClick={this.addName} nameButton={'Добавить имя в список'}/>
                 <NamesList namesList={this.state.namesList}/>
             </div>
         )

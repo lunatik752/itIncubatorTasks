@@ -8,7 +8,7 @@ const Button = (props) => {
     return (
         <div>
             <button className={style.button}
-                    onClick={props.addName}
+                    onClick={props.onClick}
             >{props.nameButton}
             </button>
         </div>
