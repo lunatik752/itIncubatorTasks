@@ -1,0 +1,19 @@
+.nav {
+    border: black 2px solid;
+    background: linear-gradient(-45deg, #FEE864, #F5965E);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+
+}
+
+.item a{
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.item a.active {
+    color: black;
+}
