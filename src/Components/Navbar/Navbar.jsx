@@ -3,19 +3,40 @@ import style from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 
 
+class Navbar extends React.Component {
 
-const Navbar = () => {
+    state = {
+        menuActive: false,
+    };
 
-    return (
-        <nav className={style.nav}>
-            <div className={style.item}>
-                <NavLink to='/monday' activeClassName={style.active}>Понедельник</NavLink>
+
+    showMenu = () => {
+        this.setState({menuActive: true});
+    };
+
+    hideMenu = () => {
+        this.setState({menuActive: false});
+    };
+
+
+    render = () => {
+        return (
+            <div className={this.state.menuActive ? style.menu + ' ' + style.menuActive : style.menu}>
+                <div className={style.menuList}>
+                    <div className={style.item}>
+                        <NavLink to='/monday' activeClassName={style.active}>monday</NavLink>
+                    </div>
+                    <div className={style.item}>
+                        <NavLink to='/tuesday' activeClassName={style.active}>tuesday</NavLink>
+                    </div>
+                    {!this.state.menuActive && <button className={style.button} onClick={this.showMenu}
+                    >menu</button>}
+                    {this.state.menuActive && <button className={style.button} onClick={this.hideMenu}
+                    >X</button>}
+                </div>
             </div>
-            <div className={style.item}>
-                <NavLink to='/tuesday' activeClassName={style.active}>Вторник</NavLink>
-            </div>
-        </nav>
-    )
-};
+        );
+    };
+}
 
 export default Navbar;

@@ -6,11 +6,10 @@ import Tuesday from "./Components/Tuesday/Tuesday";
 import {Route} from "react-router-dom";
 
 
-
 function App() {
     return (
         <div className='App-wrapper'>
-            <Navbar/>
+            <Navbar />
             <Route path='/monday'  render={() => <Monday/>}/>
             <Route path='/tuesday'  render={() => <Tuesday/>}/>
         </div>
