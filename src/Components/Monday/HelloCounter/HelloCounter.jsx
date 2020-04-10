@@ -49,7 +49,9 @@ class HelloCounter extends React.Component {
         return (
             <div className={style.helloCounterWrapper}>
                 <Counter counterValue={this.state.counterValue}/>
-                <Input onKeyPress={this.addName} state={this.state} changeInputText={this.changeInputText}/>
+                <Input onKeyPress={this.addName}
+                       state={this.state}
+                       changeInputText={this.changeInputText}/>
                 <Button onClick={this.addName} nameButton={'Добавить имя в список'}/>
                 <NamesList namesList={this.state.namesList}/>
             </div>

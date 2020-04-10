@@ -1,8 +1,9 @@
 .cloudWrapper {
-    width: 500px;
-    border: black 2px solid;
-    background: linear-gradient(-45deg, #FEE864, #F5965E);
-    margin: 10px auto;
-    display: flex;
-    align-items: flex-end;
+  display: flex;
+  align-items: flex-end;
+  width: 500px;
+  margin: 10px auto;
+
+  background: linear-gradient(-45deg, #fee864, #f5965e);
+  border: black 2px solid;
 }

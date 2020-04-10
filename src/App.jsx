@@ -10,7 +10,7 @@ const App = () => {
     return (
         <div className='App-wrapper'>
             <Navbar/>
-            <Route path='/monday'  render={() => <Monday/>}/>
+            <Route path='/monday' render={() => <Monday/>}/>
             <Route path='/tuesday'  render={() => <Tuesday/>}/>
         </div>
     );
