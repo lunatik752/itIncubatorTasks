@@ -17,14 +17,13 @@ const Input = (props) => {
 
     return (
         <div>
-            <input className={props.state.error ? style.error : style.nameInput}
+            <input className={`${style.input} ${props.state.error ? style.error : ''}`}
                    type="text"
                    placeholder={props.state.placeholderValue}
                    onChange={onInputChange}
                    onKeyPress={onKeyPress}
                    value={props.state.inputText}
             />
-
         </div>
     )
 };

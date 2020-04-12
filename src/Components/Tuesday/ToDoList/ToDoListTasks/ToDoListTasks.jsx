@@ -14,6 +14,7 @@ class TodoListTasks extends React.Component {
                 title={task.title}
                 isDone={task.isDone}
                 priority={task.priority}
+                key={task.id}
             />
         );
 

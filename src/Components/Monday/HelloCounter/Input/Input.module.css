@@ -1,19 +1,16 @@
-.nameInput {
+.input {
   margin: 10px;
   padding: 5px;
 
   font-size: 20px;
 
   border-radius: 10px;
+  outline: none;
 }
 
 .error {
-  margin: 10px;
-  padding: 5px;
-
   font-size: 20px;
 
   background-color: #ff645d;
   border: 2px solid red;
-  border-radius: 10px;
 }

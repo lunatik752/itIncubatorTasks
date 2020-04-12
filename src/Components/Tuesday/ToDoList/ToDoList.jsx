@@ -5,7 +5,6 @@ import TodoListTasks from "./ToDoListTasks/ToDoListTasks";
 import TodoListFooter from "./ToDoListFooter/TodoListFooter";
 
 
-
 class ToDoList extends React.Component {
 
     componentDidMount() {
@@ -34,8 +33,8 @@ class ToDoList extends React.Component {
             state = JSON.parse(stateAsString);
         }
         this.setState(state, () => {
-            this.state.tasks.forEach( task => {
-                if(task.id >= this.nextTaskId) {
+            this.state.tasks.forEach(task => {
+                if (task.id >= this.nextTaskId) {
                     this.nextTaskId = task.id + 1;
                 }
             })
@@ -54,14 +53,18 @@ class ToDoList extends React.Component {
         let newTasks = [...this.state.tasks, newTask];
         this.setState({
             tasks: newTasks
-        },() =>{this.saveState();});
+        }, () => {
+            this.saveState();
+        });
     };
 
 
     changeFilter = (newFilterValue) => {
         this.setState({
                 filterValue: newFilterValue
-            },() =>{this.saveState();}
+            }, () => {
+                this.saveState();
+            }
         );
     };
 
@@ -75,7 +78,9 @@ class ToDoList extends React.Component {
         });
         this.setState({
             tasks: newTasks
-        }, () => {this.saveState();});
+        }, () => {
+            this.saveState();
+        });
     };
 
     changeStatus = (taskId, isDone) => {
@@ -90,28 +95,26 @@ class ToDoList extends React.Component {
     render = () => {
 
         return (
-            <div className="App">
-                <div className="todoList">
-                    <TodoListHeader addTask={this.addTask}/>
-                    <TodoListTasks
-                        changeTitle={this.changeTitle}
-                        changeStatus={this.changeStatus}
-                        tasks={this.state.tasks.filter(t => {
-                            if (this.state.filterValue === "All") {
-                                return true;
-                            }
-                            if (this.state.filterValue === "Completed") {
-                                return t.isDone === true;
-                            }
-                            if (this.state.filterValue === "Active") {
-                                return t.isDone === false;
-                            }
-                        })}/>
-                    <TodoListFooter
-                        filterValue={this.state.filterValue}
-                        changeFilter={this.changeFilter}
-                    />
-                </div>
+            <div className={style.toDoListWrapper}>
+                <TodoListHeader addTask={this.addTask}/>
+                <TodoListTasks
+                    changeTitle={this.changeTitle}
+                    changeStatus={this.changeStatus}
+                    tasks={this.state.tasks.filter(t => {
+                        if (this.state.filterValue === "All") {
+                            return true;
+                        }
+                        if (this.state.filterValue === "Completed") {
+                            return t.isDone === true;
+                        }
+                        if (this.state.filterValue === "Active") {
+                            return t.isDone === false;
+                        }
+                    })}/>
+                <TodoListFooter
+                    filterValue={this.state.filterValue}
+                    changeFilter={this.changeFilter}
+                />
             </div>
         );
     }
