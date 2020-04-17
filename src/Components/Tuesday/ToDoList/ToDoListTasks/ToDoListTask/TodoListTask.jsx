@@ -21,6 +21,10 @@ class TodoListTask extends React.Component {
         this.props.changeTitle(this.props.task.id, e.currentTarget.value)
     };
 
+    onDeleteTaskClick = () => {
+        this.props.deleteTask(this.props.task.id)
+    }
+
 
     render = () => {
 
@@ -44,6 +48,7 @@ class TodoListTask extends React.Component {
                     <span onClick={this.activateEditMode}>{this.props.task.title}</span>
                 }
                 <span>, priority: {this.props.priority}</span>
+                <button onClick={this.onDeleteTaskClick}>X</button>
             </div>
         );
     };

@@ -15,6 +15,7 @@ class TodoListTasks extends React.Component {
                 isDone={task.isDone}
                 priority={task.priority}
                 key={task.id}
+                deleteTask={this.props.deleteTask}
             />
         );
 

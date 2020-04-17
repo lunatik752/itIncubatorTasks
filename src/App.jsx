@@ -6,6 +6,8 @@ import Tuesday from "./Components/Tuesday/Tuesday";
 import {Route} from "react-router-dom";
 
 
+
+
 const App = () => {
     return (
         <div className='App-wrapper'>

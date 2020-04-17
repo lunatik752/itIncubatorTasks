@@ -22,6 +22,7 @@ class TodoListFooter extends React.Component {
         this.setState({isHidden: true})
     };
 
+
     render = () => {
         let classForAll = this.props.filterValue === "All" ? "filter-active" : "";
         let classForCompleted = this.props.filterValue === "Completed" ? "filter-active" : "";
@@ -45,6 +46,10 @@ class TodoListFooter extends React.Component {
                         onClick={() => {
                             this.setState(this.onActiveFilterClick)
                         }}>Active
+                    </button>
+                    <button
+                        className={classForActive}
+                        onClick={this.props.deleteAllTasks}>Clear all
                     </button>
                 </div>}
                 {!this.state.isHidden && <span onClick={() => {

@@ -39,7 +39,6 @@ class ToDoList extends React.Component {
                 }
             })
         });
-
     };
 
     addTask = (newTitle) => {
@@ -91,6 +90,22 @@ class ToDoList extends React.Component {
         this.changeTask(taskId, {title: title})
     };
 
+    deleteTask = (id) => {
+        this.setState({
+            tasks: this.state.tasks.filter(task => task.id !== id),
+        })
+            this.saveState();
+        };
+
+
+    deleteAllTasks = () => {
+        localStorage.clear();
+        this.restoreState();
+        this.nextTaskId = 0;
+    }
+
+
+
 
     render = () => {
 
@@ -98,6 +113,7 @@ class ToDoList extends React.Component {
             <div className={style.toDoListWrapper}>
                 <TodoListHeader addTask={this.addTask}/>
                 <TodoListTasks
+                    deleteTask={this.deleteTask}
                     changeTitle={this.changeTitle}
                     changeStatus={this.changeStatus}
                     tasks={this.state.tasks.filter(t => {
@@ -114,6 +130,7 @@ class ToDoList extends React.Component {
                 <TodoListFooter
                     filterValue={this.state.filterValue}
                     changeFilter={this.changeFilter}
+                    deleteAllTasks={this.deleteAllTasks}
                 />
             </div>
         );
