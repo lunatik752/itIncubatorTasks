@@ -33,11 +33,7 @@ class ToDoList extends React.Component {
             state = JSON.parse(stateAsString);
         }
         this.setState(state, () => {
-            this.state.tasks.forEach(task => {
-                if (task.id >= this.nextTaskId) {
-                    this.nextTaskId = task.id + 1;
-                }
-            })
+           this.nextTaskId = this.state.tasks.length
         });
     };
 
@@ -91,20 +87,23 @@ class ToDoList extends React.Component {
     };
 
     deleteTask = (id) => {
+        let newTasks = this.state.tasks
+            .filter(task => task.id !== id)
+            .map((task, index) => ({...task, id: index}));
+        this.nextTaskId = newTasks.length;
         this.setState({
-            tasks: this.state.tasks.filter(task => task.id !== id),
-        })
-            this.saveState();
-        };
+                tasks: newTasks,
+            },
+            () => {
+                this.saveState();
+            });
+    };
 
 
     deleteAllTasks = () => {
         localStorage.clear();
         this.restoreState();
-        this.nextTaskId = 0;
     }
-
-
 
 
     render = () => {
@@ -126,7 +125,8 @@ class ToDoList extends React.Component {
                         if (this.state.filterValue === "Active") {
                             return t.isDone === false;
                         }
-                    })}/>
+                    })}
+                />
                 <TodoListFooter
                     filterValue={this.state.filterValue}
                     changeFilter={this.changeFilter}
