@@ -3,45 +3,38 @@ import style from './ToDoList.module.css';
 import TodoListHeader from "./ToDoListHeader/ToDoListHeader";
 import TodoListTasks from "./ToDoListTasks/ToDoListTasks";
 import TodoListFooter from "./ToDoListFooter/TodoListFooter";
+import {restoreState, saveState} from "../../../localSave";
+
 
 
 class ToDoList extends React.Component {
 
     componentDidMount() {
-        this.restoreState()
+        this.setState(restoreState('our-state', this.defaultState), () => {
+            this.nextTaskId = this.state.tasks.length
+        });
     };
 
-    nextTaskId = 0;
+    nextTaskId =  0;
 
     state = {
         tasks: [],
         filterValue: 'All',
+
     };
 
-    saveState = () => {
-        let stateAsString = JSON.stringify(this.state);
-        localStorage.setItem('our-state', stateAsString)
+    defaultState = {
+        tasks: [],
+        filterValue: 'All',
+
     };
 
-    restoreState = () => {
-        let state = {
-            tasks: [],
-            filterValue: 'All'
-        };
-        let stateAsString = localStorage.getItem('our-state');
-        if (stateAsString != null) {
-            state = JSON.parse(stateAsString);
-        }
-        this.setState(state, () => {
-           this.nextTaskId = this.state.tasks.length
-        });
-    };
 
     addTask = (newTitle) => {
         let newTask = {
             id: this.nextTaskId,
             title: newTitle,
-            isDone: true,
+            isDone: false,
             priority: 'low'
         };
         this.nextTaskId++;
@@ -49,7 +42,7 @@ class ToDoList extends React.Component {
         this.setState({
             tasks: newTasks
         }, () => {
-            this.saveState();
+            saveState('our-state', this.state);
         });
     };
 
@@ -58,7 +51,7 @@ class ToDoList extends React.Component {
         this.setState({
                 filterValue: newFilterValue
             }, () => {
-                this.saveState();
+                saveState('our-state', this.state);
             }
         );
     };
@@ -74,7 +67,7 @@ class ToDoList extends React.Component {
         this.setState({
             tasks: newTasks
         }, () => {
-            this.saveState();
+            saveState('our-state', this.state);
         });
     };
 
@@ -95,15 +88,17 @@ class ToDoList extends React.Component {
                 tasks: newTasks,
             },
             () => {
-                this.saveState();
+                saveState('our-state', this.state);
             });
     };
 
 
     deleteAllTasks = () => {
         localStorage.clear();
-        this.restoreState();
-    }
+        this.setState(this.defaultState, () => {
+            this.nextTaskId = this.state.tasks.length;
+        });
+    };
 
 
     render = () => {

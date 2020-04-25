@@ -1,5 +1,6 @@
 .toDoListWrapper {
-    width: 500px;
+    width: 800px;
+    padding-bottom: 20px;
 
     border: black 2px solid;
     background: linear-gradient(-45deg, #FEE864, #F5965E);

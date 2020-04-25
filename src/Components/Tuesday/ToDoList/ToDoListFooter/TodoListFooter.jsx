@@ -1,4 +1,5 @@
 import React from "react";
+import style from './ToDoListFooter.module.css'
 
 class TodoListFooter extends React.Component {
 
@@ -24,40 +25,49 @@ class TodoListFooter extends React.Component {
 
 
     render = () => {
-        let classForAll = this.props.filterValue === "All" ? "filter-active" : "";
-        let classForCompleted = this.props.filterValue === "Completed" ? "filter-active" : "";
-        let classForActive = this.props.filterValue === "Active" ? "filter-active" : "";
+        let classForAll = this.props.filterValue === "All" ? style.buttonsFooter + ' ' + style.filterActive : style.buttonsFooter;
+        let classForCompleted = this.props.filterValue === "Completed" ? style.buttonsFooter + ' ' + style.filterActive : style.buttonsFooter;
+        let classForActive = this.props.filterValue === "Active" ? style.buttonsFooter + ' ' + style.filterActive : style.buttonsFooter;
 
         return (
-            <div className="todoList-footer">
-                {!this.state.isHidden && <div>
-                    <button className={classForAll} onClick={() => {
-                        this.setState(this.onAllFilterClick)
-                    }}>All
-                    </button>
-                    <button
-                        className={classForCompleted}
-                        onClick={() => {
-                            this.setState(this.onCompletedFilterClick)
-                        }}>Completed
-                    </button>
-                    <button
-                        className={classForActive}
-                        onClick={() => {
-                            this.setState(this.onActiveFilterClick)
-                        }}>Active
-                    </button>
-                    <button
-                        className={classForActive}
-                        onClick={this.props.deleteAllTasks}>Clear all
-                    </button>
+            <div className={style.todoListFooter}>
+                {!this.state.isHidden && <div className={style.buttonsWrapper}>
+                    <div>
+                        <button className={classForAll} onClick={() => {
+                            this.setState(this.onAllFilterClick)
+                        }}>All
+                        </button>
+                    </div>
+                    <div>
+                        <button
+                            className={classForCompleted}
+                            onClick={() => {
+                                this.setState(this.onCompletedFilterClick)
+                            }}>Completed
+                        </button>
+                    </div>
+                    <div>
+                        <button
+                            className={classForActive}
+                            onClick={() => {
+                                this.setState(this.onActiveFilterClick)
+                            }}>Active
+                        </button>
+                    </div>
+                    <div>
+                        <button
+                            className={style.clearAll}
+                            onClick={this.props.deleteAllTasks}>Clear all
+                        </button>
+                    </div>
+                {!this.state.isHidden && <button title="Hide" className={style.buttonsFooter}
+                                                 onClick={this.onHideFiltersClick}>
+                    {'<'}</button>}
                 </div>}
-                {!this.state.isHidden && <span onClick={() => {
-                    this.setState(this.onHideFiltersClick)
-                }}>hide</span>}
-                {this.state.isHidden && <span onClick={() => {
-                    this.setState(this.onShowFiltersClick)
-                }}>show</span>}
+                {this.state.isHidden && <button title="Show" className={style.buttonsFooter}
+                                                onClick={this.onShowFiltersClick}>
+                    {'>'}</button>}
+
             </div>
         );
     }

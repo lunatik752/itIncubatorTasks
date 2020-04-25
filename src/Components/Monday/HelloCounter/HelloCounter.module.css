@@ -5,6 +5,7 @@
   align-items: center;
   width: 500px;
   margin: 10px auto;
+  padding-bottom: 20px;
 
   background: linear-gradient(-45deg, #fee864, #f5965e);
   border: black 2px solid;

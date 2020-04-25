@@ -1,6 +1,6 @@
 import React from 'react';
 import TodoListTask from "./ToDoListTask/TodoListTask";
-
+import style from './ToDoListTasks.module.css'
 
 
 class TodoListTasks extends React.Component {
@@ -20,8 +20,22 @@ class TodoListTasks extends React.Component {
         );
 
         return (
-            <div className="todoList-tasks">
-                {tasksElements}
+            <div className={style.todoListTasksWrapper}>
+                <table>
+                    <thead>
+                    <tr>
+                        <th className={style.done}>Done</th>
+                        <th className={style.id}>ID</th>
+                        <th className={style.taskName}>Task name</th>
+                        <th className={style.priority}>Priority</th>
+                        <th className={style.delete}>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {tasksElements}
+                    </tbody>
+                </table>
+
             </div>
         );
     }

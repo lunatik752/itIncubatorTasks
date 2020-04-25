@@ -1,3 +1,31 @@
-.todoListHeader {
+.todoListFooter {
+    width: 50%;
+}
+
+.buttonsWrapper {
+    display: flex;
+    justify-content: space-between;
 
 }
+
+.buttonsFooter {
+    font-size: 20px;
+
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.filterActive {
+    background-color: #ff6f00;
+}
+
+.clearAll {
+    background-color: red;
+    font-size: 20px;
+
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+}
+

@@ -1,9 +1,22 @@
-.taskWrapper {
-    width: 500px;
-
-    border: black 2px solid;
-    background: linear-gradient(-45deg, #FEE864, #F5965E);
-    margin: 10px auto;
-    display: flex;
-    align-items: center;
+td {
+    border: black 1px solid;
+    text-align: center;
 }
+
+.todoListTask {
+    font-size: 20px;
+}
+
+.done {
+    opacity: 0.5;
+}
+
+.deleteTask {
+    font-size: 20px;
+
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    background-color: red;
+}
+
