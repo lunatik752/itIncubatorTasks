@@ -3,23 +3,32 @@ import style from './ToDoListTask.module.css'
 
 class TodoListTask extends React.Component {
     state = {
-        editMode: false
+        editModeTitle: false,
+        editModePriority: false
     };
 
     onIsDoneChanged = (e) => {
         this.props.changeStatus(this.props.task.id, e.currentTarget.checked)
     };
 
-    activateEditMode = () => {
-        this.setState({editMode: true})
+    activateEditModeTitle = () => {
+        this.setState({editModeTitle: true})
+    };
+
+    activateEditModePriority = () => {
+        this.setState({editModePriority: true})
     };
 
     deActivateEditMode = () => {
-        this.setState({editMode: false})
+        this.setState({editModeTitle: false, editModePriority: false})
     };
 
     onTitleChanged = (e) => {
         this.props.changeTitle(this.props.task.id, e.currentTarget.value)
+    };
+
+    onPriorityChanged = (e) => {
+        this.props.changePriority(this.props.task.id, e.currentTarget.value)
     };
 
     onDeleteTaskClick = () => {
@@ -29,18 +38,19 @@ class TodoListTask extends React.Component {
 
     render = () => {
 
-        let taskIsDoneClass = this.props.task.isDone ? style.todoListTask +' ' + style.done : style.todoListTask;
+        let taskIsDoneClass = this.props.task.isDone ? style.todoListTask + ' ' + style.isDone : style.todoListTask;
 
         return (
             <tr>
                 <td>
-                    <input className={taskIsDoneClass} type="checkbox" checked={this.props.task.isDone} onChange={this.onIsDoneChanged}/>
+                    <input className={taskIsDoneClass} type="checkbox" checked={this.props.task.isDone}
+                           onChange={this.onIsDoneChanged}/>
                 </td>
                 <td>
                     <span className={taskIsDoneClass}>{this.props.task.id}</span>
                 </td>
                 <td>
-                    {this.state.editMode ?
+                    {this.state.editModeTitle ?
                         <input
                             className={style.todoListTask}
                             value={this.props.task.title}
@@ -48,11 +58,26 @@ class TodoListTask extends React.Component {
                             onBlur={this.deActivateEditMode}
                             onChange={this.onTitleChanged}
                         /> :
-                        <span className={taskIsDoneClass} onClick={this.activateEditMode}>{this.props.task.title}</span>
+                        <span className={taskIsDoneClass}
+                              onClick={this.activateEditModeTitle}>{this.props.task.title}</span>
                     }
                 </td>
                 <td>
-                    <span className={taskIsDoneClass}>{this.props.priority}</span>
+                    {this.state.editModePriority ?
+                        <select
+                            className={style.todoListTask}
+                            value={this.props.task.priority}
+                            autoFocus={true}
+                            onBlur={this.deActivateEditMode}
+                            onChange={this.onPriorityChanged}
+                        >
+                            <option>high</option>
+                            <option>medium</option>
+                            <option>low</option>
+                        </select> :
+                        <span className={taskIsDoneClass}
+                              onClick={this.activateEditModePriority}>{this.props.priority}</span>
+                    }
                 </td>
                 <td>
                     <button className={style.deleteTask} onClick={this.onDeleteTaskClick}>X</button>

@@ -7,7 +7,7 @@ td {
     font-size: 20px;
 }
 
-.done {
+.isDone {
     opacity: 0.5;
 }
 

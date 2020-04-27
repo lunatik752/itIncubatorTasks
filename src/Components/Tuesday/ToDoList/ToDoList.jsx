@@ -20,13 +20,11 @@ class ToDoList extends React.Component {
     state = {
         tasks: [],
         filterValue: 'All',
-
     };
 
     defaultState = {
         tasks: [],
         filterValue: 'All',
-
     };
 
 
@@ -79,6 +77,10 @@ class ToDoList extends React.Component {
         this.changeTask(taskId, {title: title})
     };
 
+    changePriority = (taskId, priority) => {
+    this.changeTask(taskId, {priority: priority})
+};
+
     deleteTask = (id) => {
         let newTasks = this.state.tasks
             .filter(task => task.id !== id)
@@ -110,6 +112,7 @@ class ToDoList extends React.Component {
                     deleteTask={this.deleteTask}
                     changeTitle={this.changeTitle}
                     changeStatus={this.changeStatus}
+                    changePriority={this.changePriority}
                     tasks={this.state.tasks.filter(t => {
                         if (this.state.filterValue === "All") {
                             return true;
