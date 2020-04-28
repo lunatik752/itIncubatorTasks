@@ -29,6 +29,10 @@ class Navbar extends React.Component {
                     <div className={style.item}>
                         <NavLink to='/tuesday' activeClassName={style.active}>tuesday</NavLink>
                     </div>
+                    <div className={style.item}>
+                        <NavLink to='/wednesday' activeClassName={style.active}>wednesday</NavLink>
+                    </div>
+
                     {!this.state.menuActive && <button className={style.buttonNavbar} onClick={this.showMenu}
                     >menu</button>}
                     {this.state.menuActive && <button className={style.buttonNavbar} onClick={this.hideMenu}

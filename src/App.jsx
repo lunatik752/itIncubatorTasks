@@ -5,6 +5,7 @@ import Monday from "./Components/Monday/Monday";
 import Tuesday from "./Components/Tuesday/Tuesday";
 import {Route} from "react-router-dom";
 import Loading from "./Components/Loading/Loading";
+import Wednesday from "./Components/Wednesday/Wednesday";
 
 
 class App extends React.Component {
@@ -32,6 +33,7 @@ class App extends React.Component {
                         <Navbar/>
                         <Route path='/monday' render={() => <Monday/>}/>
                         <Route path='/tuesday' render={() => <Tuesday/>}/>
+                        <Route path='/wednesday' render={() => <Wednesday/>}/>
                     </>
                 }
             </div>
