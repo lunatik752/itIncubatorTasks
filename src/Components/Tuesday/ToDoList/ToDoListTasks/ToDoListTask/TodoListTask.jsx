@@ -4,7 +4,7 @@ import style from './ToDoListTask.module.css'
 class TodoListTask extends React.Component {
     state = {
         editModeTitle: false,
-        editModePriority: false
+        editModePriority: false,
     };
 
     onIsDoneChanged = (e) => {
@@ -37,11 +37,11 @@ class TodoListTask extends React.Component {
 
 
     render = () => {
-
         let taskIsDoneClass = this.props.task.isDone ? style.todoListTask + ' ' + style.isDone : style.todoListTask;
 
         return (
-            <tr>
+
+            <tr title={'Created: ' + this.props.task.created +  '\nUpdated: ' + this.props.task.updated + '\nFinished: ' + this.props.task.finished}>
                 <td>
                     <input className={taskIsDoneClass} type="checkbox" checked={this.props.task.isDone}
                            onChange={this.onIsDoneChanged}/>

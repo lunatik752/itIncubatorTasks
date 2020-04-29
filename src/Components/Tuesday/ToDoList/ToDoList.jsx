@@ -6,7 +6,6 @@ import TodoListFooter from "./ToDoListFooter/TodoListFooter";
 import {restoreState, saveState} from "../../../localSave";
 
 
-
 class ToDoList extends React.Component {
 
     componentDidMount() {
@@ -15,7 +14,7 @@ class ToDoList extends React.Component {
         });
     };
 
-    nextTaskId =  0;
+    nextTaskId = 0;
 
     state = {
         tasks: [],
@@ -33,7 +32,10 @@ class ToDoList extends React.Component {
             id: this.nextTaskId,
             title: newTitle,
             isDone: false,
-            priority: 'low'
+            priority: 'low',
+            created: (new Date()).toLocaleString(),
+            updated: '-',
+            finished: '-'
         };
         this.nextTaskId++;
         let newTasks = [...this.state.tasks, newTask];
@@ -70,16 +72,25 @@ class ToDoList extends React.Component {
     };
 
     changeStatus = (taskId, isDone) => {
-        this.changeTask(taskId, {isDone: isDone})
+        this.changeTask(taskId, {
+            isDone: isDone,
+            finished: isDone? new Date().toLocaleString(): '-',
+        })
     };
 
     changeTitle = (taskId, title) => {
-        this.changeTask(taskId, {title: title})
+        this.changeTask(taskId, {
+            title: title,
+            updated: (new Date()).toLocaleString(),
+        })
     };
 
     changePriority = (taskId, priority) => {
-    this.changeTask(taskId, {priority: priority})
-};
+        this.changeTask(taskId, {
+            priority: priority,
+            updated: (new Date()).toLocaleString(),
+        })
+    };
 
     deleteTask = (id) => {
         let newTasks = this.state.tasks

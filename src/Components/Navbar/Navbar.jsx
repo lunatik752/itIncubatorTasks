@@ -21,7 +21,9 @@ class Navbar extends React.Component {
 
     render = () => {
         return (
-            <div className={this.state.menuActive ? style.menu + ' ' + style.menuActive : style.menu}>
+            <div className={this.state.menuActive ? style.menu + ' ' + style.menuActive : style.menu}
+                  onBlur={this.hideMenu}
+            >
                 <div className={style.menuList}>
                     <div className={style.item}>
                         <NavLink to='/monday' activeClassName={style.active}>monday</NavLink>
@@ -35,7 +37,8 @@ class Navbar extends React.Component {
 
                     {!this.state.menuActive && <button className={style.buttonNavbar} onClick={this.showMenu}
                     >menu</button>}
-                    {this.state.menuActive && <button className={style.buttonNavbar} onClick={this.hideMenu}
+                    {this.state.menuActive && <button className={style.buttonNavbar}
+                                                      onClick={this.hideMenu}
                     >X</button>}
                 </div>
             </div>
