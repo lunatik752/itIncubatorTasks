@@ -3,11 +3,12 @@ import Header from "./Header/Header";
 import MessageCloud from "./MessageCloud/MessageCloud";
 import CharacterList from "./CharacterList/CharacterList";
 import HelloCounter from "./HelloCounter/HelloCounter";
+import style from './Monday.module.css'
 
 
 function Monday() {
     return (
-        <div>
+        <div className={style.mondayWrapper}>
             <Header/>
             <MessageCloud/>
             <CharacterList/>

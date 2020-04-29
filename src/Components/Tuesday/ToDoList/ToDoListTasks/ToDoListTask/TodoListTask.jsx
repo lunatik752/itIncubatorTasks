@@ -38,10 +38,11 @@ class TodoListTask extends React.Component {
 
     render = () => {
         let taskIsDoneClass = this.props.task.isDone ? style.todoListTask + ' ' + style.isDone : style.todoListTask;
+        let taskDates = 'Created: ' + this.props.task.created + '\nUpdated: ' + this.props.task.updated + '\nFinished: ' + this.props.task.finished;
 
         return (
 
-            <tr title={'Created: ' + this.props.task.created +  '\nUpdated: ' + this.props.task.updated + '\nFinished: ' + this.props.task.finished}>
+            <tr title={taskDates}>
                 <td>
                     <input className={taskIsDoneClass} type="checkbox" checked={this.props.task.isDone}
                            onChange={this.onIsDoneChanged}/>

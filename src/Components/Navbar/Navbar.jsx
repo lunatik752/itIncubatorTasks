@@ -20,28 +20,35 @@ class Navbar extends React.Component {
 
 
     render = () => {
-        return (
-            <div className={this.state.menuActive ? style.menu + ' ' + style.menuActive : style.menu}
-                  onBlur={this.hideMenu}
-            >
-                <div className={style.menuList}>
-                    <div className={style.item}>
-                        <NavLink to='/monday' activeClassName={style.active}>monday</NavLink>
-                    </div>
-                    <div className={style.item}>
-                        <NavLink to='/tuesday' activeClassName={style.active}>tuesday</NavLink>
-                    </div>
-                    <div className={style.item}>
-                        <NavLink to='/wednesday' activeClassName={style.active}>wednesday</NavLink>
-                    </div>
 
-                    {!this.state.menuActive && <button className={style.buttonNavbar} onClick={this.showMenu}
-                    >menu</button>}
-                    {this.state.menuActive && <button className={style.buttonNavbar}
-                                                      onClick={this.hideMenu}
-                    >X</button>}
+        let menuActiveClass = this.state.menuActive ? style.menu + ' ' + style.menuActive : style.menu;
+        let shadowClass = this.state.menuActive ? style.shadow : style.shadow + ' ' + style.shadowNone;
+
+        return (
+            <>
+                <div className={menuActiveClass}>
+                    <div className={style.menuList}>
+                        <div className={style.item}>
+                            <NavLink to='/monday' activeClassName={style.active}>monday</NavLink>
+                        </div>
+                        <div className={style.item}>
+                            <NavLink to='/tuesday' activeClassName={style.active}>tuesday</NavLink>
+                        </div>
+                        <div className={style.item}>
+                            <NavLink to='/wednesday' activeClassName={style.active}>wednesday</NavLink>
+                        </div>
+
+                        {!this.state.menuActive && <button className={style.buttonNavbar} onClick={this.showMenu}
+                        >menu</button>}
+                        {this.state.menuActive && <button className={style.buttonNavbar}
+                                                          onClick={this.hideMenu}
+                        >X</button>}
+                    </div>
                 </div>
-            </div>
+                <div className={shadowClass}
+                     onClick={this.hideMenu}>
+                </div>
+            </>
         );
     };
 }
