@@ -19,7 +19,7 @@ class App extends React.Component {
                 this.setState({
                     loading: false
                 })
-            }, 3000
+            }, 500
         )
     };
 

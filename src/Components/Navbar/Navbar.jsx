@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 
 class Navbar extends React.Component {
@@ -10,14 +11,11 @@ class Navbar extends React.Component {
     };
 
 
-    showMenu = () => {
-        this.setState({menuActive: true});
+    showHideMenu = () => {
+        this.state.menuActive ?
+            this.setState({menuActive: false}):
+            this.setState({menuActive: true});
     };
-
-    hideMenu = () => {
-        this.setState({menuActive: false});
-    };
-
 
     render = () => {
 
@@ -38,15 +36,13 @@ class Navbar extends React.Component {
                             <NavLink to='/wednesday' activeClassName={style.active}>wednesday</NavLink>
                         </div>
 
-                        {!this.state.menuActive && <button className={style.buttonNavbar} onClick={this.showMenu}
-                        >menu</button>}
-                        {this.state.menuActive && <button className={style.buttonNavbar}
-                                                          onClick={this.hideMenu}
-                        >X</button>}
+                        <div className={style.buttonNavbar}>
+                            <BurgerMenu onClick={this.showHideMenu} isMenuOpen={this.state.menuActive}/>
+                        </div>
                     </div>
                 </div>
                 <div className={shadowClass}
-                     onClick={this.hideMenu}>
+                     onClick={this.showHideMenu}>
                 </div>
             </>
         );
