@@ -6,20 +6,18 @@ import Tuesday from "./Components/Tuesday/Tuesday";
 import {Route} from "react-router-dom";
 import Loading from "./Components/Loading/Loading";
 import Wednesday from "./Components/Wednesday/Wednesday";
+import {connect} from "react-redux";
 
 
 class App extends React.Component {
 
-    state = {
-        loading: true
-    }
-
     componentDidMount() {
+       let newLoading = {
+           loading: false
+       }
         setInterval(() => {
-                this.setState({
-                    loading: false
-                })
-            }, 500
+                this.props.setLoading(newLoading)
+            }, 3000
         )
     };
 
@@ -27,7 +25,7 @@ class App extends React.Component {
 
         return (
             <div className='App-wrapper'>
-                {this.state.loading ?
+                {this.props.loading ?
                     <Loading/> :
                     <>
                         <Navbar/>
@@ -39,8 +37,29 @@ class App extends React.Component {
             </div>
         );
     }
+
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        loading: state.loading
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setLoading: (newLoading) => {
+            const action = {
+                type: "SET_LOADING",
+                newLoading: newLoading
+            };
+            dispatch(action);
+        }
+    }
+}
+
+const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+export default ConnectedApp;
+
 
 
