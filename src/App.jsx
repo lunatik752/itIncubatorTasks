@@ -7,6 +7,7 @@ import {Route} from "react-router-dom";
 import Loading from "./Components/Loading/Loading";
 import Wednesday from "./Components/Wednesday/Wednesday";
 import {connect} from "react-redux";
+import {setLoading} from "./redux/loadingReducer";
 
 
 class App extends React.Component {
@@ -17,12 +18,11 @@ class App extends React.Component {
        }
         setInterval(() => {
                 this.props.setLoading(newLoading)
-            }, 3000
+            }, 500
         )
     };
 
     render = () => {
-
         return (
             <div className='App-wrapper'>
                 {this.props.loading ?
@@ -42,23 +42,11 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.loading
+        loading: state.loadingPage.loading
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setLoading: (newLoading) => {
-            const action = {
-                type: "SET_LOADING",
-                newLoading: newLoading
-            };
-            dispatch(action);
-        }
-    }
-}
-
-const ConnectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
+const ConnectedApp = connect(mapStateToProps, {setLoading})(App);
 export default ConnectedApp;
 
 
