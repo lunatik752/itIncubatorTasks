@@ -23,7 +23,7 @@
 }
 
 .light {
-  background: #ffffff;
+  background: linear-gradient(-45deg, #ffffff, #999999);
 }
 
 .red {
