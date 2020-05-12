@@ -1,0 +1,46 @@
+.themesSettingsWrapper {
+  width: 500px;
+  margin: 20px auto;
+  padding-bottom: 20px;
+
+
+  border: black 2px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.original {
+  background: linear-gradient(-45deg, #fee864, #f5965e);
+}
+
+
+.dark {
+  background: linear-gradient(-45deg, #000000, #999999);
+  color: white;
+}
+
+.light {
+  background: #ffffff;
+}
+
+.red {
+  background: linear-gradient(-45deg, #ffcece, #ff0000);
+  color: #0000ff;
+  border: #0000ff 2px solid;
+}
+
+.green {
+  background: linear-gradient(-45deg, #7bce7b, #007600);
+  border: #ffd500 2px solid;
+  color: #ffd500;
+}
+
+.themesSettings {
+  width: 300px;
+}
+
+
+

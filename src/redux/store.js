@@ -3,8 +3,8 @@ import {loadingReducer} from "./loadingReducer";
 import {settingsReducer} from "./settingsReducer";
 
 let reducers = combineReducers({
-    loadingPage: loadingReducer,
-settingsPage: settingsReducer
+    loading: loadingReducer,
+    settings: settingsReducer
 });
 
 const store = createStore(reducers);

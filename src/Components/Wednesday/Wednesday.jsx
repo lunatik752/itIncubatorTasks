@@ -1,13 +1,13 @@
 import React from 'react';
 
 import style from './Wednesday.module.css'
-import ThemeSettings from "./ThemeSettings/ThemeSettings";
+import ConnectedThemeSettings from "./ThemesSettings/ThemesSettings";
 
 
 function Tuesday() {
     return (
         <div className={style.wednesdayWrapper}>
-            <ThemeSettings/>
+            <ConnectedThemeSettings/>
         </div>
     );
 }

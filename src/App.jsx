@@ -18,7 +18,7 @@ class App extends React.Component {
        }
         setInterval(() => {
                 this.props.setLoading(newLoading)
-            }, 500
+            }, 3000
         )
     };
 
@@ -42,7 +42,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.loadingPage.loading
+        loading: state.loading.loading
     }
 }
 

@@ -1,0 +1,11 @@
+.themSelector {
+  font-size: 20px;
+}
+
+
+.themSelector input {
+  margin: auto 10px;
+
+  vertical-align: middle;
+}
+
