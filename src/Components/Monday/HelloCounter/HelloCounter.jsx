@@ -3,7 +3,7 @@ import style from './HelloCounter.module.css';
 import NamesList from "./NamesList/NamesList";
 import Counter from "./Counter/Counter";
 import Input from "./Input/Input";
-import Button from "./Button/Button";
+import Button from "../../../common/Button/Button";
 
 class HelloCounter extends React.Component {
 

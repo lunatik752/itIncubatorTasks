@@ -18,7 +18,7 @@ class App extends React.Component {
        }
         setInterval(() => {
                 this.props.setLoading(newLoading)
-            }, 3000
+            }, 500
         )
     };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import style from './ToDoListHeader.module.css';
 import Input from "../../../Monday/HelloCounter/Input/Input";
-import Button from "../../../Monday/HelloCounter/Button/Button";
+import Button from "../../../../common/Button/Button";
 
 class TodoListHeader extends React.Component {
 

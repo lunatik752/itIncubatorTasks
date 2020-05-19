@@ -1,8 +1,7 @@
 import React from "react";
 import styles from './ThemesSettings.module.css'
-import {connect} from "react-redux";
 import Theme from "./Theme/Theme";
-import {setTheme} from "../../../redux/settingsReducer";
+
 
 
 const ThemesSettings = (props) => {
@@ -26,21 +25,12 @@ const ThemesSettings = (props) => {
 
         <div className={pageTheme}>
             <h2>Choose a theme:</h2>
-            <div className='themesSettings'>
+            <div className={styles.themesSettings}>
                 {themeItem}
             </div>
         </div>
     );
 }
 
-const mapStateToProps = (state) => {
 
-    return {
-        themes: state.settings.themes,
-        style: state.settings.style
-    }
-}
-
-
-const ConnectedThemeSettings = connect(mapStateToProps, {setTheme})(ThemesSettings);
-export default ConnectedThemeSettings;
+export default ThemesSettings;
