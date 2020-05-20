@@ -9,11 +9,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 
 .original {
-  background: linear-gradient(-45deg, #fee864, #f5965e);
+  background: linear-gradient(-45deg, #fee864, #ff7a2d);
 }
 
 
