@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/itIncubatorTasks/static/css/main.82ca1d48.chunk.css",
-    "main.js": "/itIncubatorTasks/static/js/main.0319dfbe.chunk.js",
-    "main.js.map": "/itIncubatorTasks/static/js/main.0319dfbe.chunk.js.map",
+    "main.css": "/itIncubatorTasks/static/css/main.372548e8.chunk.css",
+    "main.js": "/itIncubatorTasks/static/js/main.96721f99.chunk.js",
+    "main.js.map": "/itIncubatorTasks/static/js/main.96721f99.chunk.js.map",
     "runtime-main.js": "/itIncubatorTasks/static/js/runtime-main.7ed4437d.js",
     "runtime-main.js.map": "/itIncubatorTasks/static/js/runtime-main.7ed4437d.js.map",
-    "static/js/2.5b567182.chunk.js": "/itIncubatorTasks/static/js/2.5b567182.chunk.js",
-    "static/js/2.5b567182.chunk.js.map": "/itIncubatorTasks/static/js/2.5b567182.chunk.js.map",
+    "static/js/2.ab4fd52a.chunk.js": "/itIncubatorTasks/static/js/2.ab4fd52a.chunk.js",
+    "static/js/2.ab4fd52a.chunk.js.map": "/itIncubatorTasks/static/js/2.ab4fd52a.chunk.js.map",
     "index.html": "/itIncubatorTasks/index.html",
-    "precache-manifest.2ce8f13d59f9743d4251ef844f64ec49.js": "/itIncubatorTasks/precache-manifest.2ce8f13d59f9743d4251ef844f64ec49.js",
+    "precache-manifest.a6bceb716df368e558e8575062da0d9f.js": "/itIncubatorTasks/precache-manifest.a6bceb716df368e558e8575062da0d9f.js",
     "service-worker.js": "/itIncubatorTasks/service-worker.js",
-    "static/css/main.82ca1d48.chunk.css.map": "/itIncubatorTasks/static/css/main.82ca1d48.chunk.css.map",
-    "static/js/2.5b567182.chunk.js.LICENSE.txt": "/itIncubatorTasks/static/js/2.5b567182.chunk.js.LICENSE.txt",
-    "static/media/35.gif": "/itIncubatorTasks/static/media/35.f611c450.gif"
+    "static/css/main.372548e8.chunk.css.map": "/itIncubatorTasks/static/css/main.372548e8.chunk.css.map",
+    "static/js/2.ab4fd52a.chunk.js.LICENSE.txt": "/itIncubatorTasks/static/js/2.ab4fd52a.chunk.js.LICENSE.txt",
+    "static/media/35.gif": "/itIncubatorTasks/static/media/35.f611c450.gif",
+    "static/media/App.css": "/itIncubatorTasks/static/media/sylvain-mauroux-_Lz4b6ihgEg-unsplash.97583a94.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.7ed4437d.js",
-    "static/js/2.5b567182.chunk.js",
-    "static/css/main.82ca1d48.chunk.css",
-    "static/js/main.0319dfbe.chunk.js"
+    "static/js/2.ab4fd52a.chunk.js",
+    "static/css/main.372548e8.chunk.css",
+    "static/js/main.96721f99.chunk.js"
   ]
 }
