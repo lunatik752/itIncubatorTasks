@@ -8,6 +8,7 @@ import Loading from "./Components/Loading/Loading";
 import Wednesday from "./Components/Wednesday/Wednesday";
 import {connect} from "react-redux";
 import {setLoading} from "./redux/loadingReducer";
+import Home from "./Components/Home/Home";
 
 
 class App extends React.Component {
@@ -18,7 +19,7 @@ class App extends React.Component {
        }
         setInterval(() => {
                 this.props.setLoading(newLoading)
-            }, 500
+            }, 3000
         )
     };
 
@@ -29,6 +30,7 @@ class App extends React.Component {
                     <Loading/> :
                     <>
                         <Navbar/>
+                        <Route path='/' render={() => <Home/>}/>
                         <Route path='/monday' render={() => <Monday/>}/>
                         <Route path='/tuesday' render={() => <Tuesday/>}/>
                         <Route path='/wednesday' render={() => <Wednesday/>}/>

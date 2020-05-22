@@ -7,7 +7,7 @@ import {setTheme} from "../../redux/settingsReducer";
 import ThemesSettings from "./ThemesSettings/ThemesSettings";
 
 
-function Tuesday(props) {
+function Wednesday(props) {
     return (
         <div className={style.wednesdayWrapper}>
             <ThemesSettings themes={props.themes}
@@ -20,12 +20,11 @@ function Tuesday(props) {
 }
 
 const mapStateToProps = (state) => {
-
     return {
         themes: state.settings.themes,
-        style: state.settings.style
+        style: state.settings.style,
     }
 }
 
-const ConnectedTuesday = connect(mapStateToProps, {setTheme})(Tuesday);
-export default ConnectedTuesday;
+const ConnectedWednesday = connect(mapStateToProps, {setTheme})(Wednesday);
+export default ConnectedWednesday;

@@ -15,7 +15,7 @@
   width: 50px;
   height: 6px;
 
-  background-color: #000000;
+  background-color: #ffffff;
   transition: background-color linear 0.4s;
 }
 
@@ -28,7 +28,7 @@
   width: 50px;
   height: 6px;
 
-  background-color: #000000;
+  background-color: #ffffff;
 
   transition: transform 0.2s linear, bottom 0.2s linear 0.2s;
 }
@@ -42,7 +42,7 @@
   width: 50px;
   height: 6px;
 
-  background-color: #000000;
+  background-color: #ffffff;
 
   transition: transform 0.2s linear, bottom 0.2s linear 0.2s;
 }
