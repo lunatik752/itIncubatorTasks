@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './SendingPostRequest.module.css'
 import Button from "../../../common/Button/Button";
-import axios from 'axios'
+import {api} from "../../../dal/api";
 
 
 class SendingPostRequest extends React.Component {
@@ -11,23 +11,10 @@ class SendingPostRequest extends React.Component {
     }
 
 
-    sendRequest = () => {
-        return axios.post(`https://neko-cafe-back.herokuapp.com/auth/test`,
-            {success: this.state.success}
-        )
-    }
 
-    tryCatch = async (f) => {
-        try {
-            let response = await f();
-            console.log('answer: ', response.data);
-            return response;
-        } catch (e) {
-            console.log('error: ', {...e});
-            return 'error';
-        }
+    onRequestSend = () => {
+        api.sendRequest(this.state.success)
     }
-
 
     onSuccessChange = (e) => {
         this.setState({success: e.currentTarget.checked})
@@ -49,7 +36,8 @@ class SendingPostRequest extends React.Component {
                     />
                 </div>
                 <Button nameButton='Send'
-                        onClick={() => this.tryCatch(this.sendRequest)}/>
+                        onClick={this.onRequestSend}
+                />
             </div>
         )
     }
