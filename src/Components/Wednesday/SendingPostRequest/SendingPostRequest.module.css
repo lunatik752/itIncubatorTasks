@@ -1,7 +1,6 @@
 .wrapper {
   width: 500px;
   margin: 20px auto;
-  padding-bottom: 20px;
 
 
   border: black 2px solid;
@@ -36,8 +35,6 @@
   color: #ffd500;
 }
 
-
-
 .success {
   margin: 20px auto;
   font-size: 20px;
@@ -49,4 +46,40 @@
   vertical-align: middle;
 }
 
+.requestMessage {
+  margin: 30px auto;
+  background: white;
+  height: 100px;
+  width: 300px;
+  border: black 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
+
+.requestMessage p{
+  color: #000000;
+  overflow: hidden;
+  border-right: .17em solid #e29508;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .12em;
+  animation:
+          typing 2s steps(30, end),
+          blink-caret .7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent
+  }
+  50% {
+    border-color: orange
+  }
+}

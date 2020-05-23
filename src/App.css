@@ -2,4 +2,5 @@
   position: relative;
   background: #035b97 url("./assets/image/sylvain-mauroux-_Lz4b6ihgEg-unsplash.jpg") top no-repeat;
   background-size: cover;
+  height: 100vh;
 }
