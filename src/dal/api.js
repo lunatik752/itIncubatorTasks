@@ -5,20 +5,20 @@ const instance = axios.create({
 });
 
 export const api = {
-
-
-
-  async  sendRequest (success) {
-        try {
-            const response = await
-            instance.post(``, {success});
-            console.log('answer: ', response.data);
-            return response.data;
-        } catch (e) {
-            console.log('error: ', {...e});
-            return 'error';
-        }
+    sendRequest(success) {
+        return instance.post(``, {success})
     }
-
 }
+
+export const tryCatch = async (func) => {
+    try {
+        const response = await func()
+        console.log('answer: ', response.data);
+        return response.data;
+    } catch (e) {
+        console.log('error: ', {...e});
+        return 'error';
+    }
+}
+
 

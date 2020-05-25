@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './SendingPostRequest.module.css'
 import Button from "../../../common/Button/Button";
-import {api} from "../../../dal/api";
+import {api, tryCatch} from "../../../dal/api";
 import {connect} from "react-redux";
 import {changeSuccess, showMessage, toggleWaitingResponse} from "../../../redux/requestReducer";
 import Loading from "../../Loading/Loading";
@@ -12,17 +12,18 @@ class SendingPostRequest extends React.Component {
 
     onRequestSend = () => {
         this.props.toggleWaitingResponse(true);
-        api.sendRequest(this.props.success)
+        tryCatch(() => api.sendRequest(this.props.success))
             .then(response => {
                 this.props.toggleWaitingResponse(false);
-                response === 'error' ? this.props.showMessage("Произошла ошибка на сервере!") : this.props.showMessage(`${response.errorText} Запрос отправлен!` )
+                response === 'error'
+                    ? this.props.showMessage("Произошла ошибка на сервере!")
+                    : this.props.showMessage(`${response.errorText} Запрос отправлен!`);
             })
     }
 
     onSuccessChange = (e) => {
         this.props.changeSuccess(e.currentTarget.checked)
     }
-
 
     render = () => {
         const pageTheme = styles.wrapper + ' ' + styles[this.props.style];
