@@ -1,3 +1,5 @@
+import {api, tryCatch} from "../dal/api";
+
 const CHANGE_SUCCESS = "wednesday/reducer/CHANGE_SUCCESS"
 const TOGGLE_IS_WAITING_RESPONSE = "wednesday/reducer/TOGGLE_IS_WAITING_RESPONSE"
 const SHOW_MESSAGE = "wednesday/reducer/SHOW_MESSAGE"
@@ -33,11 +35,22 @@ export const requestReducer = (state = initialState, action) => {
 export const changeSuccess = (success) => {
     return {type: CHANGE_SUCCESS, success}
 }
-export const toggleWaitingResponse = (isWaiting) => {
+const toggleWaitingResponse = (isWaiting) => {
     return {type: TOGGLE_IS_WAITING_RESPONSE, isWaiting}
 }
-export const showMessage = (responseMessage) => {
+const showMessage = (responseMessage) => {
     return {type: SHOW_MESSAGE, responseMessage}
 }
 
+//thunk
+export const getServerResponse = (success) => { return (dispatch) => {
+    dispatch(toggleWaitingResponse(true));
+    tryCatch(() => api.sendRequest(success))
+        .then(response => {
+            dispatch(toggleWaitingResponse(false));
+            response === 'error'
+                ? dispatch(showMessage("Произошла ошибка на сервере!"))
+                : dispatch(showMessage(`${response.errorText} Запрос отправлен!`));
+        })
+}}
 

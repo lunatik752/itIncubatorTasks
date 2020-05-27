@@ -1,9 +1,9 @@
 import React from "react";
 import styles from './SendingPostRequest.module.css'
 import Button from "../../../common/Button/Button";
-import {api, tryCatch} from "../../../dal/api";
+
 import {connect} from "react-redux";
-import {changeSuccess, showMessage, toggleWaitingResponse} from "../../../redux/requestReducer";
+import {changeSuccess, getServerResponse} from "../../../redux/requestReducer";
 import Loading from "../../Loading/Loading";
 
 
@@ -11,14 +11,7 @@ class SendingPostRequest extends React.Component {
 
 
     onRequestSend = () => {
-        this.props.toggleWaitingResponse(true);
-        tryCatch(() => api.sendRequest(this.props.success))
-            .then(response => {
-                this.props.toggleWaitingResponse(false);
-                response === 'error'
-                    ? this.props.showMessage("Произошла ошибка на сервере!")
-                    : this.props.showMessage(`${response.errorText} Запрос отправлен!`);
-            })
+        this.props.getServerResponse(this.props.success)
     }
 
     onSuccessChange = (e) => {
@@ -66,8 +59,7 @@ const mapStateToProps = (state) => {
 
 const ConnectedWednesday = connect(mapStateToProps, {
     changeSuccess,
-    toggleWaitingResponse,
-    showMessage
+    getServerResponse
 })(SendingPostRequest);
 
 export default ConnectedWednesday
