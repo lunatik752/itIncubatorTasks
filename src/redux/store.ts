@@ -4,11 +4,14 @@ import {settingsReducer} from "./settingsReducer";
 import {requestReducer} from "./requestReducer";
 import thunkMiddleware from "redux-thunk"
 
-let reducers = combineReducers({
+let rootReducers = combineReducers({
     loading: loadingReducer,
     settings: settingsReducer,
     request: requestReducer
 });
 
-const store = createStore(reducers, applyMiddleware(thunkMiddleware));
+type RootReducersType = typeof rootReducers;
+export type AppStateType = ReturnType<RootReducersType>
+
+const store = createStore(rootReducers, applyMiddleware(thunkMiddleware));
 export default store;

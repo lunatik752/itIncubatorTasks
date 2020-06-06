@@ -8,14 +8,24 @@ import Loading from "./Components/Loading/Loading";
 import Wednesday from "./Components/Wednesday/Wednesday";
 import {connect} from "react-redux";
 import {setLoading} from "./redux/loadingReducer";
+import {AppStateType} from "./redux/store";
 
 
-class App extends React.Component {
+type MapStatePropsType = {
+    isLoading: boolean
+}
+
+type MapDispatchPropsType = {
+    setLoading: (isLoading: boolean) => void;
+}
+
+type PropsType = MapStatePropsType & MapDispatchPropsType
+
+class App extends React.Component<PropsType> {
 
     componentDidMount() {
-        let newLoading = {loading: false}
         setTimeout(() => {
-                this.props.setLoading(newLoading)
+                this.props.setLoading(false)
             }, 500
         )
     };
@@ -23,7 +33,7 @@ class App extends React.Component {
     render = () => {
         return (
             <div className='App-wrapper'>
-                {this.props.loading ?
+                {this.props.isLoading ?
                     <Loading/> :
                     <>
                         <Navbar/>
@@ -38,13 +48,13 @@ class App extends React.Component {
 
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
-        loading: state.loading.loading
+        isLoading: state.loading.isLoading
     }
 }
 
-const ConnectedApp = connect(mapStateToProps, {setLoading})(App);
+const ConnectedApp = connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(mapStateToProps, {setLoading})(App);
 export default ConnectedApp;
 
 
