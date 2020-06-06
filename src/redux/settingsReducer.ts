@@ -1,3 +1,5 @@
+import { ThemeType } from "../types/entities"
+
 const SET_THEME = "wednesday/reducer/SET_THEME"
 
 type InitialStateType = {
@@ -5,10 +7,6 @@ type InitialStateType = {
     style: string
 }
 
-type ThemeType = {
-    id: number
-    title: string
-}
 
 const initialState: InitialStateType = {
     themes: [

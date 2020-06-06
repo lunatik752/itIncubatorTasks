@@ -1,8 +1,17 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import style from './Theme.module.css'
 
-const Theme = (props) => {
-    const onRadioInputCheck = (e) => {
+type OwnPropsType = {
+    key: number
+    title: string
+    name: string
+    onChangeClick: (theme: string)=>void
+    style: string
+}
+
+
+const Theme = (props: OwnPropsType) => {
+    const onRadioInputCheck = (e: ChangeEvent<HTMLInputElement>) => {
         props.onChangeClick(e.currentTarget.value);
     }
     return (

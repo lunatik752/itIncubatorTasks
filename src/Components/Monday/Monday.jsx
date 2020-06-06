@@ -6,7 +6,7 @@ import style from './Monday.module.css'
 import Header from "./Header/Header";
 
 
-function Monday() {
+const Monday = () => {
     return (
         <div className={style.mondayWrapper}>
             <Header/>

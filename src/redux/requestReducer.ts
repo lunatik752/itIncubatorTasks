@@ -69,17 +69,6 @@ const showMessage = (responseMessage: string): ShowMessageType => {
     return {type: SHOW_MESSAGE, responseMessage}
 }
 
-//thunk
-/*export const getServerResponse = (success: boolean) => {
-    return (dispatch: Dispatch<RequestReducerActionsTypes>) => {
-        dispatch(toggleWaitingResponse(true));
-        api.sendRequest(success)
-            .then(response => {
-                dispatch(toggleWaitingResponse(false));
-                dispatch(showMessage(`${response.data.errorText} Запрос отправлен!`));
-            })
-    }
-}*/
 
 
 export const getServerResponse = (success: boolean) => {

@@ -1,14 +1,19 @@
 import React from "react";
 import styles from './ThemesSettings.module.css'
 import Theme from "./Theme/Theme";
+import {ThemeType} from "../../../types/entities";
 
+type OwnPropsType = {
+    themes: Array<ThemeType>
+    style: string
+    setTheme: (theme: string) => void
+}
 
-
-const ThemesSettings = (props) => {
+const ThemesSettings = (props: OwnPropsType) => {
 
     const pageTheme = styles.themesSettingsWrapper + ' ' + styles[props.style];
 
-    const onChangeClick = (theme) => {
+    const onChangeClick = (theme: string) => {
         props.setTheme(theme);
     }
 
