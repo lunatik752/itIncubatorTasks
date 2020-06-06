@@ -1,6 +1,16 @@
 const SET_THEME = "wednesday/reducer/SET_THEME"
 
-const initialState = {
+type InitialStateType = {
+    themes: Array<ThemeType>
+    style: string
+}
+
+type ThemeType = {
+    id: number
+    title: string
+}
+
+const initialState: InitialStateType = {
     themes: [
         {id: 1, title: 'original'},
         {id: 2, title: 'dark'},
@@ -11,7 +21,7 @@ const initialState = {
     style: 'original'
 }
 
-export const settingsReducer = (state = initialState, action) => {
+export const settingsReducer = (state: InitialStateType = initialState, action: SetThemeType): InitialStateType => {
     switch (action.type) {
         case SET_THEME:
             return {...state,
@@ -22,6 +32,14 @@ export const settingsReducer = (state = initialState, action) => {
     }
 }
 
-export const setTheme = (title) => {
+
+//action types
+type SetThemeType = {
+    type: typeof SET_THEME
+    title: string
+}
+
+//action
+export const setTheme = (title: string) => {
     return {type: SET_THEME, title}
 }

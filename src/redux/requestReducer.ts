@@ -1,4 +1,4 @@
-import {api} from "../dal/api";
+import {api, tryCatch} from "../dal/api";
 import {Dispatch} from "redux";
 
 const CHANGE_SUCCESS = "wednesday/reducer/CHANGE_SUCCESS"
@@ -70,7 +70,7 @@ const showMessage = (responseMessage: string): ShowMessageType => {
 }
 
 //thunk
-export const getServerResponse = (success: boolean) => {
+/*export const getServerResponse = (success: boolean) => {
     return (dispatch: Dispatch<RequestReducerActionsTypes>) => {
         dispatch(toggleWaitingResponse(true));
         api.sendRequest(success)
@@ -79,11 +79,11 @@ export const getServerResponse = (success: boolean) => {
                 dispatch(showMessage(`${response.data.errorText} Запрос отправлен!`));
             })
     }
-}
+}*/
 
 
-/*export const getServerResponse = (success) => {
-    return (dispatch) => {
+export const getServerResponse = (success: boolean) => {
+    return (dispatch: Dispatch<RequestReducerActionsTypes>) => {
         dispatch(toggleWaitingResponse(true));
         tryCatch(() => api.sendRequest(success))
             .then(response => {
@@ -93,5 +93,5 @@ export const getServerResponse = (success: boolean) => {
                     : dispatch(showMessage(`${response.errorText} Запрос отправлен!`));
             })
     }
-}*/
+}
 

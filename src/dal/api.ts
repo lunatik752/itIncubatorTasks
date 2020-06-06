@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 
 const instance = axios.create({
     baseURL: `https://neko-cafe-back.herokuapp.com/auth/test`
@@ -15,15 +15,19 @@ export const api = {
     }
 }
 
-// export const tryCatch = async (func) => {
-//     try {
-//         const response = await func()
-//         console.log('answer: ', response.data);
-//         return response.data;
-//     } catch (e) {
-//         console.log('error: ', {...e});
-//         return 'error';
-//     }
-// }
+
+
+
+
+export const tryCatch = async (func: () => Promise<AxiosResponse<SendRequestType>>) => {
+    try {
+        const response = await func()
+        console.log('answer: ', response.data);
+        return response.data;
+    } catch (e) {
+        console.log('error: ', {...e});
+        return 'error';
+    }
+}
 
 
