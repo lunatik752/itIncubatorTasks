@@ -5,9 +5,24 @@ import Counter from "./Counter/Counter";
 import Input from "./Input/Input";
 import Button from "../../../common/Button/Button";
 
+type StateType = {
+    namesList: Array<NameType>
+    counterValue: number
+    inputText: string
+    error: boolean
+    placeholderValue: string
+}
+
+export type NameType = {
+    id: number
+    name: string
+}
+
+
+
 class HelloCounter extends React.Component {
 
-    state = {
+    state: StateType = {
         namesList: [],
         counterValue: 0,
         inputText: '',
@@ -15,7 +30,7 @@ class HelloCounter extends React.Component {
         placeholderValue: 'Введите имя'  //Текст заполнитель в инпуте
     };
 
-    changeInputText = (newText) => {
+    changeInputText = (newText: string) => {
         this.setState({
                 error: false,
                 inputText: newText
@@ -50,9 +65,13 @@ class HelloCounter extends React.Component {
             <div className={style.helloCounterWrapper}>
                 <Counter counterValue={this.state.counterValue}/>
                 <Input onKeyPress={this.addName}
-                       state={this.state}
+                       error={this.state.error}
+                       placeholderValue={this.state.placeholderValue}
+                       inputText={this.state.inputText}
                        changeInputText={this.changeInputText}/>
-                <Button onClick={this.addName} nameButton={'Добавить имя в список'}/>
+                <Button onClick={this.addName}
+                        disabled={false}
+                        nameButton={'Добавить имя в список'}/>
                 <NamesList namesList={this.state.namesList}/>
             </div>
         )

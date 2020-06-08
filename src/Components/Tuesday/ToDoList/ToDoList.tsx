@@ -5,6 +5,29 @@ import TodoListTasks from "./ToDoListTasks/ToDoListTasks";
 import TodoListFooter from "./ToDoListFooter/TodoListFooter";
 import {restoreState, saveState} from "../../../localSave";
 
+type StateType = {
+    tasks: Array<TaskType>
+    filterValue: string
+}
+
+export type TaskType = {
+    id: number
+    title: string
+    isDone: boolean
+    priority: string
+    created: string
+    updated: string
+    finished: string
+}
+
+type ChangeTaskType = {
+    isDone?: boolean
+    title?: string
+    finished?: string
+    updated?: string
+    priority?: string
+}
+
 
 class ToDoList extends React.Component {
 
@@ -14,9 +37,9 @@ class ToDoList extends React.Component {
         });
     };
 
-    nextTaskId = 0;
+    nextTaskId: number = 0;
 
-    state = {
+    state: StateType = {
         tasks: [],
         filterValue: 'All',
     };
@@ -27,7 +50,7 @@ class ToDoList extends React.Component {
     };
 
 
-    addTask = (newTitle) => {
+    addTask = (newTitle: string) => {
         let newTask = {
             id: this.nextTaskId,
             title: newTitle,
@@ -47,7 +70,7 @@ class ToDoList extends React.Component {
     };
 
 
-    changeFilter = (newFilterValue) => {
+    changeFilter = (newFilterValue: string) => {
         this.setState({
                 filterValue: newFilterValue
             }, () => {
@@ -56,7 +79,7 @@ class ToDoList extends React.Component {
         );
     };
 
-    changeTask = (taskId, obj) => {
+    changeTask = (taskId: number, obj: ChangeTaskType) => {
         let newTasks = this.state.tasks.map(t => {
             if (t.id !== taskId) {
                 return t;
@@ -71,28 +94,28 @@ class ToDoList extends React.Component {
         });
     };
 
-    changeStatus = (taskId, isDone) => {
+    changeStatus = (taskId: number, isDone: boolean) => {
         this.changeTask(taskId, {
             isDone: isDone,
             finished: isDone? new Date().toLocaleString(): '-',
         })
     };
 
-    changeTitle = (taskId, title) => {
+    changeTitle = (taskId: number, title: string) => {
         this.changeTask(taskId, {
             title: title,
             updated: (new Date()).toLocaleString(),
         })
     };
 
-    changePriority = (taskId, priority) => {
+    changePriority = (taskId: number, priority: string) => {
         this.changeTask(taskId, {
             priority: priority,
             updated: (new Date()).toLocaleString(),
         })
     };
 
-    deleteTask = (id) => {
+    deleteTask = (id: number) => {
         let newTasks = this.state.tasks
             .filter(task => task.id !== id)
             .map((task, index) => ({...task, id: index}));
@@ -129,10 +152,10 @@ class ToDoList extends React.Component {
                             return true;
                         }
                         if (this.state.filterValue === "Completed") {
-                            return t.isDone === true;
+                            return t.isDone;
                         }
                         if (this.state.filterValue === "Active") {
-                            return t.isDone === false;
+                            return !t.isDone;
                         }
                     })}
                 />

@@ -1,9 +1,14 @@
 import React from 'react';
 import style from './Button.module.css'
 
+type PropsType = {
+    nameButton: string
+    disabled: boolean
+    onClick: () => void
 
+}
 
-const Button = (props) => {
+const Button = (props: PropsType) => {
 
     return (
         <div>

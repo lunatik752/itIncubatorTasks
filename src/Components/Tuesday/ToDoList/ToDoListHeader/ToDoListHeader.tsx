@@ -3,9 +3,19 @@ import style from './ToDoListHeader.module.css';
 import Input from "../../../Monday/HelloCounter/Input/Input";
 import Button from "../../../../common/Button/Button";
 
-class TodoListHeader extends React.Component {
+type PropsType = {
+    addTask: (newText: string) => void
+}
 
-    state = {
+type StateType = {
+    inputText: string
+    error: boolean
+    placeholderValue: string
+}
+
+class TodoListHeader extends React.Component<PropsType> {
+
+    state: StateType = {
         inputText: '',
         error: false,
         placeholderValue: 'New task name'
@@ -24,7 +34,7 @@ class TodoListHeader extends React.Component {
 
     };
 
-    onFilterChange = (newText) => {
+    onFilterChange = (newText: string) => {
         this.setState({
             error: false,
             inputText: newText
@@ -41,10 +51,15 @@ class TodoListHeader extends React.Component {
                 <h3>What to Learn</h3>
                 <div className={style.inputArea}>
                     <Input onKeyPress={this.onAddTaskClick}
-                           state={this.state}
+                           error={this.state.error}
+                           placeholderValue={this.state.placeholderValue}
+                           inputText={this.state.inputText}
                            changeInputText={this.onFilterChange}
                     />
-                    <Button onClick={this.onAddTaskClick} nameButton={'Add'}/>
+                    <Button onClick={this.onAddTaskClick}
+                            nameButton={'Add'}
+                            disabled={false}
+                    />
                 </div>
             </div>
         );

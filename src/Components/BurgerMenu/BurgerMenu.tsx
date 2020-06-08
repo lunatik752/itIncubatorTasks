@@ -1,7 +1,12 @@
 import React from 'react';
 import style from './BurgerMenu.module.css';
 
-const BurgerMenu = (props) => {
+type PropsType = {
+    isMenuOpen: boolean
+    onClick: () => void
+}
+
+const BurgerMenu = (props: PropsType) => {
 
     let classBurgerMenu = props.isMenuOpen ? style.burgerMenuIcon + ' ' + style.active : style.burgerMenuIcon;
 

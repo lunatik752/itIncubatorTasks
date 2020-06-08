@@ -1,8 +1,11 @@
 import React from 'react';
 import style from './NameListItem.module.css';
 
+type PropsType = {
+    name: string
+}
 
-const NameListItem = (props) => {
+const NameListItem = (props: PropsType) => {
 
 
     return (

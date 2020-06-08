@@ -3,18 +3,22 @@ import style from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
+type StateType = {
+    menuActive: boolean
+}
+
 
 class Navbar extends React.Component {
 
-    state = {
+    state: StateType = {
         menuActive: false,
     };
 
 
     showHideMenu = () => {
-        this.state.menuActive ?
-            this.setState({menuActive: false}):
-            this.setState({menuActive: true});
+        this.state.menuActive
+            ? this.setState({menuActive: false})
+            : this.setState({menuActive: true});
     };
 
     render = () => {

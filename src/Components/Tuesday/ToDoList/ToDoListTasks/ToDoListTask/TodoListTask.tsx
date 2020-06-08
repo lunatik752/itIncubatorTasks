@@ -1,13 +1,27 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import style from './ToDoListTask.module.css'
+import {TaskType} from "../../ToDoList";
 
-class TodoListTask extends React.Component {
-    state = {
+type StateType = {
+    editModeTitle: boolean
+    editModePriority: boolean
+}
+
+type PropsType = {
+    task: TaskType
+    changeStatus: (taskId: number, isDone: boolean) => void
+    changeTitle: (taskId: number, title: string) => void
+    changePriority: (taskId: number, priority: string) => void
+    deleteTask: (id: number) => void
+}
+
+class TodoListTask extends React.Component<PropsType> {
+    state: StateType = {
         editModeTitle: false,
         editModePriority: false,
     };
 
-    onIsDoneChanged = (e) => {
+    onIsDoneChanged = (e: ChangeEvent<HTMLInputElement>) => {
         this.props.changeStatus(this.props.task.id, e.currentTarget.checked)
     };
 
@@ -23,11 +37,11 @@ class TodoListTask extends React.Component {
         this.setState({editModeTitle: false, editModePriority: false})
     };
 
-    onTitleChanged = (e) => {
+    onTitleChanged = (e: ChangeEvent<HTMLInputElement>) => {
         this.props.changeTitle(this.props.task.id, e.currentTarget.value)
     };
 
-    onPriorityChanged = (e) => {
+    onPriorityChanged = (e: ChangeEvent<HTMLSelectElement>) => {
         this.props.changePriority(this.props.task.id, e.currentTarget.value)
     };
 
@@ -77,7 +91,7 @@ class TodoListTask extends React.Component {
                             <option>low</option>
                         </select> :
                         <span className={taskIsDoneClass}
-                              onClick={this.activateEditModePriority}>{this.props.priority}</span>
+                              onClick={this.activateEditModePriority}>{this.props.task.priority}</span>
                     }
                 </td>
                 <td>

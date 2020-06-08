@@ -1,8 +1,12 @@
 import React from 'react';
 import style from './CharacterItem.module.css';
 
+type PropsType ={
+    filterValue: string
+    character: string
+}
 
-const CharacterItem = (props) => {
+const CharacterItem = (props: PropsType) => {
 
     let classCharacterItemRed = props.filterValue === props.character ? style.characterItemRed : "";
 

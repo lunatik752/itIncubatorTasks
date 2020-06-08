@@ -1,9 +1,19 @@
 import React from "react";
 import style from './ToDoListFooter.module.css'
 
-class TodoListFooter extends React.Component {
+type StateType = {
+    isHidden: boolean
+}
 
-    state = {
+type PropsType = {
+    changeFilter: (filterValue: string) => void
+    filterValue: string
+    deleteAllTasks: () => void
+}
+
+class TodoListFooter extends React.Component<PropsType> {
+
+    state: StateType = {
         isHidden: false
     };
 

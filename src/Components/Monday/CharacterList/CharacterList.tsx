@@ -3,18 +3,23 @@ import style from './CharacterList.module.css';
 import CharacterItem from "./CharacterItem/CharacterItem";
 
 
+type CharacterType = {
+    id: number
+    character: string
+}
+
 const CharacterList = () => {
 
-    let characterList = [
+    let charactersList: Array<CharacterType> = [
         {id: 1, character: "Оптимист"},
         {id: 2, character: "Авантюрист"},
         {id: 3, character: "Рационалист"},
         {id: 4, character: "Альтруист"}
     ];
 
-    let filterValue = "Авантюрист";
+    let filterValue: string = "Авантюрист";
 
-    let characterElements = characterList.map(ch => {
+    let characterElements = charactersList.map(ch => {
         return <CharacterItem character={ch.character} filterValue={filterValue} key={ch.id}/>
     });
 
