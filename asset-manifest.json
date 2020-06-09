@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/itIncubatorTasks/static/css/main.24815b46.chunk.css",
-    "main.js": "/itIncubatorTasks/static/js/main.2df42c0c.chunk.js",
-    "main.js.map": "/itIncubatorTasks/static/js/main.2df42c0c.chunk.js.map",
+    "main.css": "/itIncubatorTasks/static/css/main.a3229b05.chunk.css",
+    "main.js": "/itIncubatorTasks/static/js/main.14c6567c.chunk.js",
+    "main.js.map": "/itIncubatorTasks/static/js/main.14c6567c.chunk.js.map",
     "runtime-main.js": "/itIncubatorTasks/static/js/runtime-main.f0cf5199.js",
     "runtime-main.js.map": "/itIncubatorTasks/static/js/runtime-main.f0cf5199.js.map",
-    "static/js/2.e9bcec86.chunk.js": "/itIncubatorTasks/static/js/2.e9bcec86.chunk.js",
-    "static/js/2.e9bcec86.chunk.js.map": "/itIncubatorTasks/static/js/2.e9bcec86.chunk.js.map",
+    "static/js/2.947beb2a.chunk.js": "/itIncubatorTasks/static/js/2.947beb2a.chunk.js",
+    "static/js/2.947beb2a.chunk.js.map": "/itIncubatorTasks/static/js/2.947beb2a.chunk.js.map",
     "index.html": "/itIncubatorTasks/index.html",
-    "precache-manifest.f28393688866e2b9a1ca25d50a8d2f99.js": "/itIncubatorTasks/precache-manifest.f28393688866e2b9a1ca25d50a8d2f99.js",
+    "precache-manifest.2b284204767c6285b20a1a2c0dafa74c.js": "/itIncubatorTasks/precache-manifest.2b284204767c6285b20a1a2c0dafa74c.js",
     "service-worker.js": "/itIncubatorTasks/service-worker.js",
-    "static/css/main.24815b46.chunk.css.map": "/itIncubatorTasks/static/css/main.24815b46.chunk.css.map",
-    "static/js/2.e9bcec86.chunk.js.LICENSE.txt": "/itIncubatorTasks/static/js/2.e9bcec86.chunk.js.LICENSE.txt",
+    "static/css/main.a3229b05.chunk.css.map": "/itIncubatorTasks/static/css/main.a3229b05.chunk.css.map",
+    "static/js/2.947beb2a.chunk.js.LICENSE.txt": "/itIncubatorTasks/static/js/2.947beb2a.chunk.js.LICENSE.txt",
     "static/media/35.gif": "/itIncubatorTasks/static/media/35.f611c450.gif",
-    "static/media/App.css": "/itIncubatorTasks/static/media/sylvain-mauroux-_Lz4b6ihgEg-unsplash.97583a94.jpg"
+    "static/media/App.module.css": "/itIncubatorTasks/static/media/sylvain-mauroux-_Lz4b6ihgEg-unsplash.97583a94.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.f0cf5199.js",
-    "static/js/2.e9bcec86.chunk.js",
-    "static/css/main.24815b46.chunk.css",
-    "static/js/main.2df42c0c.chunk.js"
+    "static/js/2.947beb2a.chunk.js",
+    "static/css/main.a3229b05.chunk.css",
+    "static/js/main.14c6567c.chunk.js"
   ]
 }
