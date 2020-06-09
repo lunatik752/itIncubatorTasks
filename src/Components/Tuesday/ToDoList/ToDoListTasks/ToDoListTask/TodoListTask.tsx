@@ -64,12 +64,12 @@ class TodoListTask extends React.Component<PropsType> {
                 <td>
                     <span className={taskIsDoneClass}>{this.props.task.id}</span>
                 </td>
-                <td>
+                <td className={style.taskTitle}>
                     {this.state.editModeTitle ?
                         <input
                             className={style.todoListTask}
                             value={this.props.task.title}
-                            autoFocus={true}
+                           autoFocus={true}
                             onBlur={this.deActivateEditMode}
                             onChange={this.onTitleChanged}
                         /> :

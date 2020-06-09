@@ -2,6 +2,10 @@ td {
     border: black 1px solid;
     text-align: center;
 }
+.taskTitle {
+    max-width: 120px;
+    word-wrap: break-word
+}
 
 .todoListTask {
     font-size: 20px;

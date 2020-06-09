@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.css';
 import Navbar from "./Components/Navbar/Navbar";
 import Monday from "./Components/Monday/Monday";
 import Tuesday from "./Components/Tuesday/Tuesday";
@@ -32,7 +32,7 @@ class App extends React.Component<PropsType> {
 
     render = () => {
         return (
-            <div className='App-wrapper'>
+            <div className={styles.appWrapper}>
                 {this.props.isLoading ?
                     <Loading/> :
                     <>
