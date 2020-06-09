@@ -26,7 +26,7 @@ class App extends React.Component<PropsType> {
     componentDidMount() {
         setTimeout(() => {
                 this.props.setLoading(false)
-            }, 500
+            }, 3000
         )
     };
 
