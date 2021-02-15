@@ -13,6 +13,8 @@ const ThemesSettings = (props: OwnPropsType) => {
 
 
     //test comment from branch  test3
+    //test comment from branch  test4
+
 
     const pageTheme = styles.themesSettingsWrapper + ' ' + styles[props.style];
 
