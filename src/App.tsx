@@ -33,11 +33,11 @@ class App extends React.Component<PropsType> {
     render = () => {
         return (
             <div className={styles.appWrapper}>
-                {this.props.isLoading ?
-                    <Loading/> :
-                    <>
+                {this.props.isLoading
+                    ? <Loading/>
+                    : <>
                         <Navbar/>
-                        <Route path='/monday' render={() => <Monday/>}/>
+                        <Route path={'/monday'} render={() => <Monday/>}/>
                         <Route path='/tuesday' render={() => <Tuesday/>}/>
                         <Route path='/wednesday' render={() => <Wednesday/>}/>
                     </>

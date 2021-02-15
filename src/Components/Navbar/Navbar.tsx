@@ -31,7 +31,7 @@ class Navbar extends React.Component {
                 <div className={menuActiveClass}>
                     <div className={style.menuList}>
                         <div className={style.item}>
-                            <NavLink to='/monday' activeClassName={style.active}>monday</NavLink>
+                            <NavLink to={'/monday'} activeClassName={style.active}>monday</NavLink>
                         </div>
                         <div className={style.item}>
                             <NavLink to='/tuesday' activeClassName={style.active}>tuesday</NavLink>

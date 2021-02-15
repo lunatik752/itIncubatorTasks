@@ -11,7 +11,7 @@ type SendRequestType = {
 
 export const api = {
     sendRequest(success: boolean) {
-        return instance.post<SendRequestType>(``, {success})
+        return instance.post<SendRequestType>(``, {success});
     }
 }
 
