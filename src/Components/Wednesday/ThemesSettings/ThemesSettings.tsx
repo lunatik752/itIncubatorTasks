@@ -11,7 +11,6 @@ type OwnPropsType = {
 
 const ThemesSettings = (props: OwnPropsType) => {
 
-    //test change
 
     const pageTheme = styles.themesSettingsWrapper + ' ' + styles[props.style];
 
